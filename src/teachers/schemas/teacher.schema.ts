@@ -4,7 +4,7 @@ import { Document } from 'mongoose';
 @Schema({ timestamps: true })
 export class Teacher extends Document {
   @Prop({ required: true })
-  fullName: string;
+  FullName: string;
 
   @Prop()
   phone: string;

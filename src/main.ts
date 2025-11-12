@@ -3,6 +3,7 @@ import { AppModule } from './app.module';
 import { ValidationPipe } from '@nestjs/common';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { ConfigService } from '@nestjs/config';
+import { AllExceptionsFilter } from './filters/al-execeptions.filter';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -10,6 +11,7 @@ async function bootstrap() {
 
   app.enableCors();
   app.useGlobalPipes(new ValidationPipe());
+  app.useGlobalFilters(new AllExceptionsFilter());
 
   const swaggerConfig = new DocumentBuilder()
     .setTitle('CRM Panel API')
@@ -27,4 +29,4 @@ async function bootstrap() {
   console.log(`Server running on http://localhost:${port}`);
   console.log(`Swagger docs: http://localhost:${port}/api-docs`);
 }
-bootstrap();
+bootstrap(); 
