@@ -24,7 +24,7 @@ export class AuthService {
       name: dto.name,
       email: dto.email,
       password: hashedPassword,
-      role: dto.role || 'student',
+      role: dto.role
     });
 
     const savedStudent = await newStudent.save();
@@ -76,7 +76,7 @@ export class AuthService {
   }
 
 
-  async logout() {
+  async logout(id: any) {
     return { message: 'Logout successful' };
   }
 }

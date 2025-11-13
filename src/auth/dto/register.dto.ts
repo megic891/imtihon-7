@@ -2,21 +2,21 @@ import { IsEmail, IsNotEmpty, MinLength, MaxLength, IsString, IsOptional } from 
 import { ApiProperty } from '@nestjs/swagger';
 
 export class RegisterDto {
-  @ApiProperty({ example: 'Islombek Annazarov', description: 'Foydalanuvchi toliq ismi' })
+  @ApiProperty({ example: 'Ali Annazarov', description: 'Foydalanuvchi toliq ismi' })
   @IsNotEmpty({ message: 'Ism bo‘sh bo‘lmasligi kerak' })
   @IsString()
   readonly name: string;
 
 
-  @ApiProperty({ example: 'islom@example.com', description: 'Foydalanuvchi emaili' })
+  @ApiProperty({ example: 'xmmegic@example.com', description: 'Foydalanuvchi emaili' })
   @IsEmail({}, { message: 'Email noto‘g‘ri formatda' })
   readonly email: string;
    
 
-  @ApiProperty({ example: 'teacher',  })
+  @ApiProperty({ enum: ['student', 'teacher']  })
   @IsOptional()
   @IsString()
-  role?: string;
+  role: string;
 
   @ApiProperty({ example: '12345678', description: 'Foydalanuvchi paroli (kamida 8 ta belgi)' })
   @IsNotEmpty({ message: 'Parol kiritish majburiy' })

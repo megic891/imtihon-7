@@ -7,10 +7,10 @@ export class Student extends Document {
   name: string;
 
   @Prop({ required: true, unique: true })
-  email: string; // ✅ Auth uchun zarur
+  email: string; 
 
   @Prop({ required: true })
-  password: string; // ✅ Auth uchun zarur
+  password: string; 
 
   @Prop()
   phone?: string;
@@ -24,8 +24,8 @@ export class Student extends Document {
   @Prop({ type: String })
   groupId?: string;
 
-  @Prop({ default: 'student' })
-  role: string; // ✅ Auth uchun kerak
+  @Prop()
+  role: string; 
 }
 
 export type StudentDocument = Student & Document;
